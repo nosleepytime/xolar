@@ -1,0 +1,13 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/ipa/:id", "destination": "/" },
+    { "source": "/apps", "destination": "/" },
+    { "source": "/games", "destination": "/" },
+    { "source": "/updates/apps", "destination": "/" },
+    { "source": "/updates/games", "destination": "/" },
+    { "source": "/search", "destination": "/" },
+    { "source": "/admin-api", "destination": "/" }
+  ]
+}
