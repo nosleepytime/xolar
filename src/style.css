@@ -696,3 +696,38 @@ body {
   background: rgba(98, 255, 70, .35);
   border-radius: 999px;
 }
+
+/* Ashierx7 global promo button */
+.ashier-promo {
+  position: relative;
+  overflow: hidden;
+  padding: 15px 26px;
+  border-radius: 999px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  text-decoration: none;
+  background: #050505;
+  border: 1px solid transparent;
+  box-shadow: 0 0 30px rgba(98, 255, 70, .18);
+}
+.ashier-promo::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  background: conic-gradient(from 0deg, #62ff46, #20e999, #ff3df2, #00ff88, #62ff46);
+  animation: rgbSpin 2.8s linear infinite;
+}
+.ashier-promo::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  z-index: -1;
+  border-radius: 999px;
+  background: #050505;
+}
+.ashier-promo span { position: relative; z-index: 1; }
+@keyframes rgbSpin { to { transform: rotate(360deg); } }
+@media (max-width: 760px) { .ashier-promo { display: none; } }

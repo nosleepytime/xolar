@@ -84,6 +84,8 @@ function shell(content) {
         <img src="${escapeHtml(CONFIG.logoUrl)}" alt="${escapeHtml(CONFIG.siteName)} logo" />
       </button>
 
+      <a class="ashier-promo" href="/ashierx7"><span>Ashierx7</span></a>
+
       <div class="top-actions">
         <button class="icon-btn" data-nav="/search" aria-label="Search">
           <i class="fa-solid fa-magnifying-glass"></i>
