@@ -1,6 +1,6 @@
 # xolar — Global IPA Library
 
-A full English IPA library website built for **GitHub + Vercel + Firebase Realtime Database**.
+A full English black-theme IPA library website built for **GitHub + Vercel + Firebase Realtime Database**.
 
 Use it only for IPA files you own, created, or have permission to distribute.
 
@@ -128,3 +128,150 @@ GET /api/posts?updated=true
 GET /api/posts?search=spotify
 GET /api/apple?bundleId=com.activision.callofduty.shooter
 ```
+
+## Ashierx7 separated developer store
+
+Public page:
+
+```txt
+/ashierx7
+```
+
+The Ashier page is separate from the main xolar SPA and uses a dedicated static page with its own store UI, demo login, cart, demo purchases, English/Arabic auto language detection, Telegram links, and support email.
+
+Ashier logo:
+
+```txt
+https://github.com/nosleepytime/xolar/raw/refs/heads/main/IMG_4517.jpeg
+```
+
+Customer support email:
+
+```txt
+app.celeste.isp@protonmail.com
+```
+
+### Ashier Firebase paths
+
+```txt
+/ashier/ipas
+/ashier/views
+```
+
+### Ashier API endpoints
+
+Same secret header as the main API:
+
+```txt
+x-api-key: YOUR_XOLAR_ADMIN_API_KEY
+```
+
+Create Ashier IPA:
+
+```bash
+curl -X POST "https://YOUR-SITE.vercel.app/api/ashier/posts" \
+  -H "content-type: application/json" \
+  -H "x-api-key: YOUR_XOLAR_ADMIN_API_KEY" \
+  -d '{
+    "name": "Ashier Premium IPA",
+    "bundleId": "com.example.app",
+    "ipaVersion": "1.0.0",
+    "size": "300 MB",
+    "downloadUrl": "https://www.mediafire.com/file/example/file.ipa/file",
+    "iconUrl": "https://example.com/icon.png",
+    "screenshots": [],
+    "supportedDevices": ["iPhone", "iPad", "iOS 15+"],
+    "category": "Utilities",
+    "modFeatures": "Premium drop by Ashier.",
+    "tags": ["ashier", "premium", "ipa"],
+    "priceMode": "paid",
+    "price": 9.99,
+    "currency": "USD",
+    "stripePriceId": "",
+    "demoCheckoutEnabled": true,
+    "status": "published"
+  }'
+```
+
+Free Ashier IPA:
+
+```json
+{
+  "name": "Ashier Free IPA",
+  "bundleId": "com.example.free",
+  "ipaVersion": "1.0.0",
+  "size": "120 MB",
+  "downloadUrl": "https://www.mediafire.com/file/example/free.ipa/file",
+  "iconUrl": "https://example.com/icon.png",
+  "priceMode": "free",
+  "price": 0,
+  "currency": "USD",
+  "status": "published"
+}
+```
+
+Update Ashier IPA:
+
+```bash
+curl -X PUT "https://YOUR-SITE.vercel.app/api/ashier/posts/POST_ID" \
+  -H "content-type: application/json" \
+  -H "x-api-key: YOUR_XOLAR_ADMIN_API_KEY" \
+  -d '{
+    "ipaVersion": "1.0.1",
+    "size": "305 MB",
+    "downloadUrl": "https://www.mediafire.com/file/new/file.ipa/file"
+  }'
+```
+
+Delete Ashier IPA:
+
+```bash
+curl -X DELETE "https://YOUR-SITE.vercel.app/api/ashier/posts/POST_ID" \
+  -H "x-api-key: YOUR_XOLAR_ADMIN_API_KEY"
+```
+
+List Ashier post IDs:
+
+```bash
+curl "https://YOUR-SITE.vercel.app/api/ashier/admin/list" \
+  -H "x-api-key: YOUR_XOLAR_ADMIN_API_KEY"
+```
+
+Public reads:
+
+```txt
+GET /api/ashier/posts
+GET /api/ashier/posts?id=POST_ID
+GET /api/ashier/posts?priceMode=paid
+GET /api/ashier/posts?priceMode=free
+GET /api/ashier/posts?search=term
+```
+
+### Firebase Realtime Database rules update
+
+```json
+{
+  "rules": {
+    ".read": true,
+    ".write": false,
+    "ipas": {
+      ".indexOn": ["type", "updatedAt", "createdAt", "nameLower", "bundleId"]
+    },
+    "views": {
+      ".indexOn": ["updatedAt"]
+    },
+    "ashier": {
+      "ipas": {
+        ".indexOn": ["priceMode", "updatedAt", "createdAt", "nameLower", "bundleId"]
+      },
+      "views": {
+        ".indexOn": ["updatedAt"]
+      }
+    }
+  }
+}
+```
+
+### Stripe note
+
+This version includes demo login, demo cart, and demo purchases using localStorage. It does not charge real money yet. Paid IPA real downloads stay locked until Stripe Checkout + Firebase Auth are connected later.
