@@ -1,0 +1,33 @@
+export function normalizeElChapoPost(input = {}, existing = {}) {
+  const merged = { ...existing, ...input };
+  const name = String(merged.name || existing.name || "Untitled IPA").trim();
+  const priceMode = String(merged.priceMode || existing.priceMode || "free").toLowerCase();
+
+  if (!["free", "paid"].includes(priceMode)) {
+    throw new Error("priceMode must be free or paid");
+  }
+
+  return {
+    name,
+    nameLower: name.toLowerCase(),
+    bundleId: String(merged.bundleId || "").trim(),
+    ipaVersion: String(merged.ipaVersion || "").trim(),
+    appStoreVersion: String(merged.appStoreVersion || "").trim(),
+    size: String(merged.size || "").trim(),
+    downloadUrl: String(merged.downloadUrl || "").trim(),
+    iconUrl: String(merged.iconUrl || "").trim(),
+    screenshots: Array.isArray(merged.screenshots) ? merged.screenshots.filter(Boolean) : [],
+    supportedDevices: Array.isArray(merged.supportedDevices) ? merged.supportedDevices.filter(Boolean) : [],
+    category: String(merged.category || "").trim(),
+    modFeatures: String(merged.modFeatures || "").trim(),
+    tags: Array.isArray(merged.tags) ? merged.tags.filter(Boolean) : [],
+    priceMode,
+    price: Number(merged.price || 0),
+    currency: String(merged.currency || "USD").toUpperCase(),
+    stripePriceId: String(merged.stripePriceId || "").trim(),
+    demoCheckoutEnabled: merged.demoCheckoutEnabled !== false,
+    status: String(merged.status || "published").trim(),
+    updatedAt: merged.updatedAt || nowIso(),
+    createdAt: merged.createdAt || existing.createdAt || nowIso()
+  };
+}
