@@ -3,12 +3,12 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/ashierx7",
-      "destination": "/ashierx7.html"
+      "source": "/el-chapo",
+      "destination": "/el-chapo.html"
     },
     {
-      "source": "/ashierx7/:path*",
-      "destination": "/ashierx7.html"
+      "source": "/el-chapo/:path*",
+      "destination": "/el-chapo.html"
     },
     {
       "source": "/ipa/:id",
