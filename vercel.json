@@ -3,14 +3,6 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/ashierx7",
-      "destination": "/ashierx7.html"
-    },
-    {
-      "source": "/ashierx7/:path*",
-      "destination": "/ashierx7.html"
-    },
-    {
       "source": "/ipa/:id",
       "destination": "/"
     },
@@ -20,22 +12,6 @@
     },
     {
       "source": "/games",
-      "destination": "/"
-    },
-    {
-      "source": "/updates/apps",
-      "destination": "/"
-    },
-    {
-      "source": "/updates/games",
-      "destination": "/"
-    },
-    {
-      "source": "/search",
-      "destination": "/"
-    },
-    {
-      "source": "/admin-api",
       "destination": "/"
     },
     {
@@ -63,11 +39,43 @@
       "destination": "/"
     },
     {
+      "source": "/updates/apps",
+      "destination": "/"
+    },
+    {
+      "source": "/updates/games",
+      "destination": "/"
+    },
+    {
+      "source": "/search",
+      "destination": "/"
+    },
+    {
       "source": "/el-chapo",
       "destination": "/"
     },
     {
-      "source": "/el-chapo/:path*",
+      "source": "/el-chapo/cart",
+      "destination": "/"
+    },
+    {
+      "source": "/el-chapo/purchases",
+      "destination": "/"
+    },
+    {
+      "source": "/el-chapo/auth",
+      "destination": "/"
+    },
+    {
+      "source": "/el-chapo/ipa/:id",
+      "destination": "/"
+    },
+    {
+      "source": "/ashierx7",
+      "destination": "/"
+    },
+    {
+      "source": "/ashierx7/:path*",
       "destination": "/"
     }
   ]

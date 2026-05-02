@@ -409,3 +409,25 @@ api/index.js
 ```
 
 That is 11 serverless functions, still under the Vercel Hobby limit of 12.
+
+
+## Complete UI fix
+
+This version replaces the frontend with a clean working single-page app.
+Fixed pages:
+- /paid
+- /subscriptions
+- /cart
+- /purchases
+- /payments
+- /account
+- /el-chapo/cart
+- /el-chapo/purchases
+
+Both global paid IPAs and EL CHAPO paid IPAs now use Stripe Checkout through:
+
+```txt
+POST /api/stripe/checkout
+```
+
+The user must sign in with an email on /account before checkout.
