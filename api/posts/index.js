@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   try {
     if (req.method === "GET") {
-      const { id, type, search, updated } = req.query;
+      const { id, type, search, updated, priceMode } = req.query;
       const snap = await db().ref("ipas").once("value");
       const viewsSnap = await db().ref("views").once("value");
       const raw = snap.val() || {};
@@ -21,6 +21,7 @@ export default async function handler(req, res) {
 
       if (id) posts = posts.filter(post => post.id === id);
       if (type) posts = posts.filter(post => post.type === String(type).toLowerCase());
+      if (priceMode) posts = posts.filter(post => post.priceMode === String(priceMode).toLowerCase());
       if (updated === "true") posts = posts.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
       else posts = posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
