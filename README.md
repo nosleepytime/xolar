@@ -355,3 +355,20 @@ api/[...path].js
 That keeps the project under the Vercel Hobby plan limit of 12 Serverless Functions.
 
 Important: when uploading this version to GitHub, replace the whole old `api` folder. Do not keep the old API files, or Vercel will still count them.
+
+
+## API root
+
+This version includes:
+
+```txt
+/api/index.js
+```
+
+So opening `/api` returns a status response instead of `API route not found`.
+
+Main API routes still go through:
+
+```txt
+/api/[...path].js
+```

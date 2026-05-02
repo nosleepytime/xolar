@@ -23,5 +23,8 @@ Delete these from GitHub if they exist:
 - api/:  (the weird file named colon)
 - any old api subfolders like api/posts, api/stripe, api/el-chapo
 
-Vercel should see only one serverless function:
+Vercel should see only two serverless functions:
+- api/index.js
 - api/[...path].js
+
+api/index.js is only for the /api status page.
