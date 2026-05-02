@@ -372,3 +372,40 @@ Main API routes still go through:
 ```txt
 /api/[...path].js
 ```
+
+
+## Fix for Vercel catch-all parameter
+
+This version supports Vercel returning the dynamic catch-all parameter as:
+
+```txt
+path
+...path
+[...path]
+```
+
+So `/api/posts` correctly routes to the posts API.
+
+
+## Vercel explicit API route fix
+
+This version does not use `api/[...path].js`.
+
+Vercel was returning 404 for `/api/el-chapo/posts` before the function executed.
+This version uses explicit API files instead:
+
+```txt
+api/posts.js
+api/el-chapo/posts.js
+api/views/[id].js
+api/el-chapo/views/[id].js
+api/apple.js
+api/admin/list.js
+api/stripe/checkout.js
+api/stripe/webhook.js
+api/stripe/purchases.js
+api/stripe/portal.js
+api/index.js
+```
+
+That is 11 serverless functions, still under the Vercel Hobby limit of 12.

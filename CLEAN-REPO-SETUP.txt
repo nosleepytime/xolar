@@ -1,9 +1,10 @@
-xolar clean final repo
+xolar clean final repo — explicit API route version
 
 This is the clean version for Vercel Hobby.
 
 Root structure:
-- api/[...path].js
+- api/
+- lib/server.js
 - public/favicon.svg
 - index.html
 - package.json
@@ -11,20 +12,16 @@ Root structure:
 - README.md
 - .env.example
 
-Important:
-Do not keep old files from previous patches.
-Delete these from GitHub if they exist:
+This version uses explicit API routes instead of api/[...path].js because Vercel returned 404 before invoking the catch-all function.
+
+Serverless function count: 11, under the Hobby limit of 12.
+
+Do not keep old patch files:
 - src/
 - apps/
 - public/ashierx7.html
 - public/el-chapov.html
 - firebase-extra-functions.txt
 - README-EL-CHAPO-PATCH.md
-- api/:  (the weird file named colon)
-- any old api subfolders like api/posts, api/stripe, api/el-chapo
-
-Vercel should see only two serverless functions:
-- api/index.js
 - api/[...path].js
-
-api/index.js is only for the /api status page.
+- api/:
