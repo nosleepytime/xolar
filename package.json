@@ -12,7 +12,8 @@
   "dependencies": {
     "@vitejs/plugin-react": "latest",
     "firebase-admin": "latest",
-    "vite": "latest"
+    "vite": "latest",
+    "stripe": "latest"
   },
   "devDependencies": {}
 }

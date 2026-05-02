@@ -275,3 +275,83 @@ GET /api/ashier/posts?search=term
 ### Stripe note
 
 This version includes demo login, demo cart, and demo purchases using localStorage. It does not charge real money yet. Paid IPA real downloads stay locked until Stripe Checkout + Firebase Auth are connected later.
+
+
+## Stripe + paid IPAs + subscriptions added
+
+This version includes:
+- Global `/paid` page
+- Global `/cart`
+- Global `/subscriptions`
+- Global `/purchases`
+- Global `/payments`
+- Stripe Checkout API
+- Stripe Webhook API
+- Stripe Customer Portal API
+- EL CHAPO store still separate
+- EL CHAPO Stripe checkout through the same Stripe API
+- AdSense-ready placeholders in `index.html`
+
+### Stripe environment variables
+
+Add these in Vercel:
+
+```txt
+PUBLIC_SITE_URL=https://your-site.vercel.app
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+STRIPE_GLOBAL_SUB_MONTHLY_PRICE_ID=price_...
+STRIPE_GLOBAL_SUB_YEARLY_PRICE_ID=price_...
+```
+
+### Stripe webhook
+
+Create this webhook endpoint in Stripe:
+
+```txt
+https://your-site.vercel.app/api/stripe/webhook
+```
+
+Events:
+```txt
+checkout.session.completed
+customer.subscription.updated
+customer.subscription.deleted
+```
+
+### Global paid IPA fields
+
+```json
+{
+  "priceMode": "paid",
+  "price": 9.99,
+  "currency": "USD",
+  "stripePriceId": "price_...",
+  "includedInSubscription": true
+}
+```
+
+### AdSense
+
+In `index.html`, replace:
+
+```txt
+ca-pub-REPLACE_ME
+REPLACE_HOME_SLOT
+REPLACE_DETAIL_SLOT
+```
+
+with your real Google AdSense values after approval.
+
+
+## Vercel Hobby fix
+
+This version uses only **one** Serverless Function:
+
+```txt
+api/[...path].js
+```
+
+That keeps the project under the Vercel Hobby plan limit of 12 Serverless Functions.
+
+Important: when uploading this version to GitHub, replace the whole old `api` folder. Do not keep the old API files, or Vercel will still count them.

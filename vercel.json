@@ -3,12 +3,12 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/el-chapo",
-      "destination": "/el-chapo.html"
+      "source": "/ashierx7",
+      "destination": "/ashierx7.html"
     },
     {
-      "source": "/el-chapo/:path*",
-      "destination": "/el-chapo.html"
+      "source": "/ashierx7/:path*",
+      "destination": "/ashierx7.html"
     },
     {
       "source": "/ipa/:id",
@@ -36,6 +36,38 @@
     },
     {
       "source": "/admin-api",
+      "destination": "/"
+    },
+    {
+      "source": "/paid",
+      "destination": "/"
+    },
+    {
+      "source": "/cart",
+      "destination": "/"
+    },
+    {
+      "source": "/account",
+      "destination": "/"
+    },
+    {
+      "source": "/payments",
+      "destination": "/"
+    },
+    {
+      "source": "/purchases",
+      "destination": "/"
+    },
+    {
+      "source": "/subscriptions",
+      "destination": "/"
+    },
+    {
+      "source": "/el-chapo",
+      "destination": "/"
+    },
+    {
+      "source": "/el-chapo/:path*",
       "destination": "/"
     }
   ]
