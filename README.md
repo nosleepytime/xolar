@@ -431,3 +431,25 @@ POST /api/stripe/checkout
 ```
 
 The user must sign in with an email on /account before checkout.
+
+
+## Ads removed + Support Us added
+
+This version removes all AdSense / ads code.
+
+New support page:
+
+```txt
+/support
+```
+
+New Stripe endpoint:
+
+```txt
+POST /api/stripe/support
+```
+
+The support flow creates a one-time Stripe Checkout Session using dynamic `price_data`.
+No extra Stripe Price ID is required for Support Us.
+
+Support payments do not unlock paid IPA files and are not subscriptions.

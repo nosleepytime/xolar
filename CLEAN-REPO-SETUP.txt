@@ -25,3 +25,5 @@ Do not keep old patch files:
 - README-EL-CHAPO-PATCH.md
 - api/[...path].js
 - api/:
+
+Ads have been removed. Support Us has been added at /support using /api/stripe/support.

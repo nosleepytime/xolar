@@ -39,6 +39,10 @@
       "destination": "/"
     },
     {
+      "source": "/support",
+      "destination": "/"
+    },
+    {
       "source": "/updates/apps",
       "destination": "/"
     },
