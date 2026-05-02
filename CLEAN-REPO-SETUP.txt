@@ -1,0 +1,27 @@
+xolar clean final repo
+
+This is the clean version for Vercel Hobby.
+
+Root structure:
+- api/[...path].js
+- public/favicon.svg
+- index.html
+- package.json
+- vercel.json
+- README.md
+- .env.example
+
+Important:
+Do not keep old files from previous patches.
+Delete these from GitHub if they exist:
+- src/
+- apps/
+- public/ashierx7.html
+- public/el-chapov.html
+- firebase-extra-functions.txt
+- README-EL-CHAPO-PATCH.md
+- api/:  (the weird file named colon)
+- any old api subfolders like api/posts, api/stripe, api/el-chapo
+
+Vercel should see only one serverless function:
+- api/[...path].js
