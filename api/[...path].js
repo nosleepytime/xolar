@@ -96,10 +96,21 @@ async function readJson(req) {
 }
 
 function getPathParts(req) {
-  const p = req.query.path;
-  if (Array.isArray(p)) return p;
+  // Vercel can expose the catch-all param as "...path" for a file named "[...path].js".
+  // Some environments expose it as "path". We support both.
+  const p =
+    req.query.path ||
+    req.query["...path"] ||
+    req.query["[...path]"];
+
+  if (Array.isArray(p)) return p.flatMap(part => String(part).split("/")).filter(Boolean);
   if (typeof p === "string") return p.split("/").filter(Boolean);
-  return [];
+
+  const urlPath = String(req.url || "")
+    .split("?")[0]
+    .replace(/^\/api\/?/, "");
+
+  return urlPath.split("/").filter(Boolean);
 }
 
 function scopeToPaths(scope) {
