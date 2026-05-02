@@ -1,0 +1,74 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/ashierx7",
+      "destination": "/ashierx7.html"
+    },
+    {
+      "source": "/ashierx7/:path*",
+      "destination": "/ashierx7.html"
+    },
+    {
+      "source": "/ipa/:id",
+      "destination": "/"
+    },
+    {
+      "source": "/apps",
+      "destination": "/"
+    },
+    {
+      "source": "/games",
+      "destination": "/"
+    },
+    {
+      "source": "/updates/apps",
+      "destination": "/"
+    },
+    {
+      "source": "/updates/games",
+      "destination": "/"
+    },
+    {
+      "source": "/search",
+      "destination": "/"
+    },
+    {
+      "source": "/admin-api",
+      "destination": "/"
+    },
+    {
+      "source": "/paid",
+      "destination": "/"
+    },
+    {
+      "source": "/cart",
+      "destination": "/"
+    },
+    {
+      "source": "/account",
+      "destination": "/"
+    },
+    {
+      "source": "/payments",
+      "destination": "/"
+    },
+    {
+      "source": "/purchases",
+      "destination": "/"
+    },
+    {
+      "source": "/subscriptions",
+      "destination": "/"
+    },
+    {
+      "source": "/el-chapo",
+      "destination": "/"
+    },
+    {
+      "source": "/el-chapo/:path*",
+      "destination": "/"
+    }
+  ]
+}
