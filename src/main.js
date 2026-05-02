@@ -84,7 +84,7 @@ function shell(content) {
         <img src="${escapeHtml(CONFIG.logoUrl)}" alt="${escapeHtml(CONFIG.siteName)} logo" />
       </button>
 
-      <a class="ashier-promo" href="/el-chapo"><span>EL CHAPO</span></a>
+      <a class="ashier-promo" href="/ashierx7"><span>Ashierx7</span></a>
 
       <div class="top-actions">
         <button class="icon-btn" data-nav="/search" aria-label="Search">
