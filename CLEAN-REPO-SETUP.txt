@@ -27,3 +27,5 @@ Do not keep old patch files:
 - api/:
 
 Ads have been removed. Support Us has been added at /support using /api/stripe/support.
+
+Build parse error fixed: missing semicolon before /purchases route.
